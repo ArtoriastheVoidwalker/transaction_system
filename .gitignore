@@ -1,0 +1,15 @@
+__pycache__
+.vscode
+celerybeat-schedule
+
+.env
+env
+
+.venv
+venv
+
+app/.mypy_cache
+.coverage
+.vscode
+!default_storage/
+storage
