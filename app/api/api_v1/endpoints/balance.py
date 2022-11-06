@@ -51,7 +51,7 @@ async def replenish_balance(
 
     if balance is not None:
         new_amount = balance.amount + amount
-
+        # adding a request to the queue
         update_balance.apply_async(args=[new_amount, balance.id])
         raise HTTPException(status_code=200, detail=f"Balance updated successfully")
 
@@ -70,7 +70,7 @@ async def remove_from_balance(
     if balance is not None:
         if balance.amount - amount >= 0:
             new_amount = balance.amount - amount
-
+            # adding a request to the queue
             update_balance.apply_async(args=[new_amount, balance.id])
             raise HTTPException(status_code=200, detail=f"Balance updated successfully")
 
